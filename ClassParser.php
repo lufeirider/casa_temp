@@ -15,8 +15,6 @@ class ClassParser extends Parser
     public function __construct()
     {
         parent::__construct();
-        $this->func_map = array();
         $this->func_tained_var = array();
-        $this->func_dangerous = array();
     }
 }

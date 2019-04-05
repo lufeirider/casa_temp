@@ -32,6 +32,13 @@ class MyNodeVisitor extends NodeVisitorAbstract
     public $condition_map;
     //////////////////////////////
 
+    //////////////////////////////
+    /// 分析信息
+    //可能存在漏洞的函数potential vul function
+    public $tained_var;
+    public $pvf;
+    //////////////////////////////
+
     //输出源代码
     public $prettyPrinter;
 
@@ -48,6 +55,9 @@ class MyNodeVisitor extends NodeVisitorAbstract
         $this->func_map = array();
         $this->assing_map = array();
         $this->condition_map = array();
+
+        $this->tained_var = array();
+        $this->pvf = array();
 
         $this->com_func_parser = new ComFuncParser();
         $this->class_parser = new ClassParser();
@@ -112,22 +122,44 @@ class MyNodeVisitor extends NodeVisitorAbstract
         //////////////////////////////////////////////////////////////解析变量
         if ($node instanceof Node\Expr\Variable) {
             //获取变量名,$a = $b,$b的情况
-            $cur_name = $node->name;
+            $right_var = $node->name;
 
             $node_token_pos = $node->getStartTokenPos();
             //赋值语句，右边有被污染的变量，左边的变量就算污染，现在寻找到右边的表达式中有被污染变量，则把左边的变量纳入污染变量列表中。
             //判断是否在赋值表达式中内
+            //公共函数中
             if(array_key_exists($node_token_pos,$this->assing_map) && array_key_exists($node_token_pos,$this->func_map)) {
                 $in_func_name = $this->func_map[$node_token_pos];
                 //判断右边的表达式是否包含被tained的变量
-                if(array_key_exists($cur_name,$this->com_func_parser->func_tained_var[$in_func_name]))
+                if(array_key_exists($right_var,$this->com_func_parser->func_tained_var[$in_func_name]))
                 {
-                    $origin_tained_var = $this->com_func_parser->func_tained_var[$in_func_name][$cur_name];
+                    $origin_tained_var = $this->com_func_parser->func_tained_var[$in_func_name][$right_var];
                     //$this->com_func_parser->func_assign_map,这个赋值语句的token映射，$this->com_func_parser->func_assign_map[$node_token_pos],获取$a的名字
                     $this->com_func_parser->func_tained_var[$in_func_name][$this->assing_map[$node_token_pos]] = $origin_tained_var;
                 }
-            }else{
-                //
+            }
+            //类函数中
+            else if(array_key_exists($node_token_pos,$this->assing_map) && array_key_exists($node_token_pos,$this->class_func_map)){
+                $in_func_name = $this->class_func_map[$node_token_pos];
+                //判断右边的表达式是否包含被tained的变量
+                if(array_key_exists($right_var,$this->class_parser->func_tained_var[$in_func_name]))
+                {
+                    $origin_tained_var = $this->class_parser->func_tained_var[$in_func_name][$right_var];
+                    //$this->class_parser->func_assign_map,这个赋值语句的token映射，$this->assing_map[$node_token_pos],获取$a的名字
+                    $this->class_parser->func_tained_var[$in_func_name][$this->assing_map[$node_token_pos]] = $origin_tained_var;
+                }
+            }
+            //流程中
+            else{
+                //$a = $_GET['aa']情况
+                if(array_key_exists($node_token_pos,$this->assing_map) && in_array($right_var,$this->user_source)){
+                    $this->tained_var[$right_var] = $right_var;
+                    $this->tained_var[$this->assing_map[$node_token_pos]] = $right_var;
+                //$a = $b
+                }else if(array_key_exists($node_token_pos,$this->assing_map) && array_key_exists($right_var,$this->tained_var)){
+                    $origin_tained_var = $this->tained_var[$right_var];
+                    $this->tained_var[$this->assing_map[$node_token_pos]] = $origin_tained_var;
+                }
             }
         }
 
@@ -177,18 +209,18 @@ class MyNodeVisitor extends NodeVisitorAbstract
             //这里有个数组，但是这里的[0]是固定的，没有其他的情况，可以放心获取到调用函数名，如果出问题，php-parser背锅
             $call_func_name = $node->name->parts[0];
 
-            //解析在类函数
+            //获取被调用函数参数信息
+            foreach ($node->args as $index => $arg){
+                //获取到参数的名字
+                $arg_name = $arg->value->name;
+                $call_func_args[$index] = $arg_name;
+            }
+
+            //解析在类函数,判断调用的函数是否是sink
             if(array_key_exists($node_token_pos,$this->class_func_map))
             {
                 $in_func_name = $this->class_func_map[$node_token_pos];
-                //获取被调用函数参数信息
-                foreach ($node->args as $index => $arg){
-                    //获取到参数的名字
-                    $arg_name = $arg->value->name;
-                    $call_func_args[$index] = $arg_name;
-                }
 
-                //判断调用的函数是否是sink
                 if(array_key_exists($call_func_name,$this->sink))
                 {
                     //获取sink的参数地址
@@ -216,22 +248,18 @@ class MyNodeVisitor extends NodeVisitorAbstract
                         }
                     }
                 }
-            }
+                else if(1==1)
+                {
 
-            //解析公共函数
-            if(array_key_exists($node_token_pos,$this->func_map))
-            {
-                $in_func_name = $this->func_map[$node_token_pos];
-                //这里有个数组，但是这里的[0]是固定的，没有其他的情况，可以放心获取到调用函数名，如果出问题，php-parser背锅
-                $call_func_name = $node->name->parts[0];
-                //获取被调用函数参数信息
-                foreach ($node->args as $index => $arg){
-                    //获取到参数的名字
-                    $arg_name = $arg->value->name;
-                    $call_func_args[$index] = $arg_name;
                 }
 
-                //判断调用的函数是否是sink
+            }
+
+            //解析公共函数,判断调用的函数是否是sink
+            elseif(array_key_exists($node_token_pos,$this->func_map) )
+            {
+                $in_func_name = $this->func_map[$node_token_pos];
+
                 if(array_key_exists($call_func_name,$this->sink))
                 {
                     //获取sink的参数地址
@@ -244,30 +272,83 @@ class MyNodeVisitor extends NodeVisitorAbstract
                         {
 
                             //是否有条件，可能有多层条件，这里就简化，就设置为一个条件，以后要扩展成数据
-                            print("#####################################result:\n");
-                            print("#####################################危险函数：\n");
-                            print($call_func_name);
-                            print("\n#####################################污染参数的来源：\n");
-                            print($this->com_func_parser->func_tained_var[$in_func_name][$sinked_arg_name]);
                             print("\n#####################################条件：\n");
                             if(array_key_exists($node_token_pos,$this->condition_map))
                             {
                                 print_r($this->condition_map[$node_token_pos]);
                             }
-                            print("\n#####################################函数：\n");
-                            print($in_func_name);
-                            print("\n#####################################");
+                            print("\n#####################################节点：\n");
+                            print_r($in_func_name."############".$this->prettyPrinter->prettyPrintExpr($node));
+                            print("\n#####################################\n");
 
                             //添加到pvf中
-                            $this->pvf[] = $in_func_name;
+                            $this->pvf[$in_func_name][] = $index;
                         }
                     }
-                }else{
-
                 }
+                else if(array_key_exists($call_func_name,$this->pvf))
+                {
+                    //获取sink的参数地址
+                    $sinked_arg_position = $this->pvf[$call_func_name];
+                    foreach ($call_func_args as $index=> $sinked_arg_name)
+                    {
+                        //判断是否在sink函数的漏洞位置，并且判断参数是否被污染
+                        if(in_array($index,$sinked_arg_position) && array_key_exists($sinked_arg_name,$this->com_func_parser->func_tained_var[$in_func_name]))
+                        {
+
+                            //是否有条件，可能有多层条件，这里就简化，就设置为一个条件，以后要扩展成数据
+                            print("\n#####################################条件：\n");
+                            if(array_key_exists($node_token_pos,$this->condition_map))
+                            {
+                                print_r($this->condition_map[$node_token_pos]);
+                            }
+                            print("\n#####################################节点：\n");
+                            print_r($in_func_name."############".$this->prettyPrinter->prettyPrintExpr($node));
+                            print("\n#####################################\n");
+
+                            //添加到pvf中
+                            $this->pvf[$in_func_name][] = $index;
+                        }
+                    }
+                }
+
+
 
             }
 
+            //在流程中
+            else
+            {
+                if(array_key_exists($call_func_name,$this->sink)) {
+                    //获取sink的参数地址
+                    $sinked_arg_position = $this->sink[$call_func_name];
+                    //开始遍历被调用函数的参数
+                    foreach ($call_func_args as $index => $sinked_arg_name) {
+                        //判断是否在sink函数的漏洞位置，并且判断参数是否被污染
+                        if (in_array($index, $sinked_arg_position) && array_key_exists($sinked_arg_name, $this->tained_var)) {
+                            //打印匹配结果
+                            print("\n#####################################\n");
+                            print_r($this->prettyPrinter->prettyPrintExpr($node));
+                            print("\n#####################################\n");
+                        }
+                    }
+                }
+                else if(array_key_exists($call_func_name,$this->pvf))
+                {
+                    //获取sink的参数地址
+                    $sinked_arg_position = $this->pvf[$call_func_name];
+
+                    foreach ($call_func_args as $index => $sinked_arg_name) {
+                        //判断是否在sink函数的漏洞位置，并且判断参数是否被污染
+                        if (in_array($index, $sinked_arg_position) && array_key_exists($sinked_arg_name, $this->tained_var)) {
+                            //打印匹配结果
+                            print("\n#####################################\n");
+                            print_r($this->prettyPrinter->prettyPrintExpr($node));
+                            print("\n#####################################\n");
+                        }
+                    }
+                }
+            }
         }
     }
 

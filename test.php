@@ -22,15 +22,21 @@ $traverser->addVisitor(new MyNodeVisitor);
 
 $code = <<<'CODE'
 <?php
-$cmd = $_GET['cmd'];
-class AAA{
-    function __construct($department){
-        system($department);
-    }
+function filter_evil($str)
+{
+    return $str;
+}
 
-    public function echo_network($ip){
-        system($ip);
-    }
+function echo_network($cmd)
+{
+    $temp = filter_evil($cmd);
+    system($temp);
+}
+
+
+function xxxxxxx($cmd)
+{
+	echo_network($cmd);
 }
 CODE;
 
