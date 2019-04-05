@@ -8,7 +8,6 @@ use PhpParser\NodeTraverser;
 use PhpParser\ParserFactory;
 use PhpParser\PrettyPrinter;
 
-
 $traverser     = new NodeTraverser;
 $prettyPrinter = new PrettyPrinter\Standard;
 
@@ -23,20 +22,16 @@ $traverser->addVisitor(new MyNodeVisitor);
 
 $code = <<<'CODE'
 <?php
+$cmd = $_GET['cmd'];
+class AAA{
+    function __construct($department){
+        system($department);
+    }
 
-$aaa = $_GET['cmd'];
-
-function echo_network($cmd)
-{
-	if((1==2) && (1==1))
-	{
-		$temp = $cmd;
-		system($temp);
-	}
+    public function echo_network($ip){
+        system($ip);
+    }
 }
-
-echo_network($aaa);
-
 CODE;
 
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7,$lexer);
@@ -56,4 +51,4 @@ try {
 }
 
 $dumper = new NodeDumper;
-echo $dumper->dump($ast) . "\n";
+//echo $dumper->dump($ast) . "\n";
