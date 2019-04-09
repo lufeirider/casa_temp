@@ -22,22 +22,16 @@ $traverser->addVisitor(new MyNodeVisitor);
 
 $code = <<<'CODE'
 <?php
-function filter_evil($str)
-{
-    return $str;
-}
+// 不对等赋值
+class People{
+    public $age;
 
-function echo_network($cmd)
-{
-    $temp = filter_evil($cmd);
-    system($temp);
+    public function show_name($aaaaaaaaaa){
+        $animal = $aaaaaaaaaa->lufei;
+        system($animal->name."xxxxxxxx");
+    }
 }
-
-
-function xxxxxxx($cmd)
-{
-	echo_network($cmd);
-}
+?>
 CODE;
 
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7,$lexer);
