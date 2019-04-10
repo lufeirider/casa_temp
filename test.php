@@ -22,16 +22,18 @@ $traverser->addVisitor(new MyNodeVisitor);
 
 $code = <<<'CODE'
 <?php
-// 不对等赋值
-class People{
-    public $age;
+class Animal{
+    public $name;
+    public $food;
 
-    public function show_name($aaaaaaaaaa){
-        $animal = $aaaaaaaaaa->lufei;
-        system($animal->name."xxxxxxxx");
+    public function eat_xxx($food){
+        system($food);
+    }
+
+    public function eat_fruit($fruit){
+        $fruit->lufei->eat_xxx($fruit->name);
     }
 }
-?>
 CODE;
 
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7,$lexer);

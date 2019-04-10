@@ -1,4 +1,11 @@
 <?php
-$str = "people";
+$cmd = $_GET['cmd'];
+$cmd = 'whoami';
+function show_name($var)
+{
+    global $cmd;
+    print_r($var);
+    system($cmd);
+}
 
-print_r(explode("@@",$str));
+show_name($cmd);
