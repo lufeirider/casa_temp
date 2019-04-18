@@ -7,12 +7,47 @@
  */
 use PhpParser\Node;
 
+
+/**
+ * 从节点中遍历处$name这种
+ * @param $object
+ * @return array
+ */
+function recursive_var($node){
+    $result = array();
+    $sub_result = array();
+
+    foreach($node as $sub_node)
+    {
+        if($node instanceof Node\Expr\PropertyFetch || $node instanceof Node\Expr\Variable)
+        {
+            $result[] = $node;
+            return $result;
+        }
+
+
+        if(is_object($sub_node))
+        {
+            $sub_result = recursive_object_var($sub_node);
+        }
+
+        if(!empty($sub_node))
+        {
+            $result = array_merge($result,$sub_result);
+        }
+
+    }
+
+    return $result;
+
+}
+
 /**
  * 遍历变量和对象属性，比如$name,$people->name
  * @param $object
  * @return array
  */
-function recursive_object_var($object){
+function recursive_property_var($object){
     //Expr_PropertyFetch
     $result = array();
     $sub_result = array();
@@ -34,7 +69,7 @@ function recursive_object_var($object){
 
         if(is_object($sub_object))
         {
-            $sub_result = recursive_object_var($sub_object);
+            $sub_result = recursive_property_var($sub_object);
         }
 
         if(!empty($sub_object))
@@ -68,6 +103,31 @@ function check_is_tained($arg_arr,$tained_arr)
         }
     }
     return false;
+}
+
+
+/**
+ * 确定从某个节点取出的各种变量，是否被污染，返回被污染的列表
+ * @param $unkown_var_arr
+ * @param $tained_arr
+ * @return array
+ */
+function check_var_tained($unkown_var_arr,$tained_arr)
+{
+    $sure_taine_arr = array();
+    foreach($unkown_var_arr as $v)
+    {
+        $arg_object_arr = explode("@@",$v);
+
+        for($i=count($arg_object_arr);$i>-1;$i--)
+        {
+            $arg_object_str = join(array_slice($arg_object_arr,0,$i),"@@");
+            if(array_key_exists($arg_object_str,$tained_arr))
+                $sure_taine_arr[] = $arg_object_str;
+        }
+    }
+    return $sure_taine_arr;
+
 }
 
 /**

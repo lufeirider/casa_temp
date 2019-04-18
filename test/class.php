@@ -91,3 +91,49 @@ class People{
     }
 }
 ?>
+
+
+<?php
+//pvf函数调用
+class Animal{
+    public $name;
+    public $food;
+
+    public function show_name(){
+        system($this->name);
+    }
+
+    public function eat_xxx($food){
+        system($food);
+    }
+
+    public function eat_fruit($fruit){
+        $this->eat_xxx($fruit);
+    }
+}
+?>
+
+
+<?php
+//pvf函数调用
+class Animal{
+    public $name;
+    public $food;
+
+    public function show_name(){
+        system($this->name);
+    }
+
+    public function eat_xxx($food){
+        system($food);
+    }
+
+    public function eat_fruit($fruit){
+        $this->eat_xxx($fruit);
+    }
+}
+
+$animal = new Animal();
+$animal->eat_fruit($_GET['cmd']);
+?>
+
