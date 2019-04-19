@@ -22,28 +22,14 @@ $traverser->addVisitor(new MyNodeVisitor);
 
 $code = <<<'CODE'
 <?php
-//pvf函数调用
-class Animal{
-    public $name;
-    public $food;
-
-    public function show_name(){
-        system($this->name);
-    }
-
-    public function eat_xxx($food){
-        system($food);
-    }
-
-    public function eat_fruit($fruit){
-        $this->eat_xxx($fruit);
-    }
+//最简单文件检测
+$cmd = $_GET['cmd'];
+function echo_network($ip)
+{
+    system($ip);
 }
-
-$animal = new Animal();
-$animal->eat_fruit($_GET['cmd']);
+echo_network($cmd);
 ?>
-
 CODE;
 
 $parser = (new ParserFactory)->create(ParserFactory::PREFER_PHP7,$lexer);

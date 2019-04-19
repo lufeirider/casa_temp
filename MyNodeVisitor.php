@@ -39,6 +39,7 @@ class MyNodeVisitor extends NodeVisitorAbstract
     //////////////////////////////
     /// 分析信息
     //可能存在漏洞的函数potential vul function
+    //$name => $_GET['name']
     public $tained_var;
     public $pvf;
     //people_command,类名_函数名
@@ -163,7 +164,9 @@ class MyNodeVisitor extends NodeVisitorAbstract
             }
         }
 
-
+        /**
+         * 属性获取
+         */
         if ($node instanceof Node\Expr\PropertyFetch)
         {
             $node_position = $node->getStartTokenPos();
@@ -194,7 +197,8 @@ class MyNodeVisitor extends NodeVisitorAbstract
         if ($node instanceof Node\Expr\Assign){
             //获取左边变量名,$a = $b,$a的情况
 
-            $left_var_arr = recursive_property_var($node);
+            //遍历对象或者基本变量left_var
+            $left_var_arr = recursive_property_var($node->var);
             /**
              * $a = $b,解析变量$a的情况
              */
@@ -208,7 +212,6 @@ class MyNodeVisitor extends NodeVisitorAbstract
                 }
                 else if($unkown_var instanceof Node\Expr\Variable)
                 {
-                    //基本变量、或者$a[0]
                     $left_var = $unkown_var->name;
                 }
             }
@@ -286,7 +289,7 @@ class MyNodeVisitor extends NodeVisitorAbstract
                 if(array_key_exists($node_position,$this->assing_map) && in_array($right_var,$this->user_source)){
                     $this->tained_var[$right_var] = $right_var;
                     $this->tained_var[$this->assing_map[$node_position]] = $right_var;
-                //分析出来的污染源来自分析结果，$a = $b情况
+                //分析出来的污染源来自分析结果，$a = $b,$b的情况
                 }else if(array_key_exists($node_position,$this->assing_map) && array_key_exists($right_var,$this->tained_var)){
                     $origin_tained_var = $this->tained_var[$right_var];
                     $this->tained_var[$this->assing_map[$node_position]] = $origin_tained_var;
@@ -733,7 +736,7 @@ class MyNodeVisitor extends NodeVisitorAbstract
                     }
                     print("\n#####################################\n");
                     print("pop chain:\n");
-                    print($start_class."@@".$start_class_method."||".$pop_chain."||".$target_class_method[0]."@@".$target_class);
+                    print($start_class."@@".$start_class_method."||".$pop_chain."||".$target_class_method."@@".$target_class);
                     print("\n#####################################\n");
                 }
 

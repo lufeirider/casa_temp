@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ec24c43-2af9-4438-841b-e3778408429c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/parser_test/PropertyFetch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parser_test/array.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/file_singled.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/serialize.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ClassParser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommonFunction.php" beforeDir="false" afterPath="$PROJECT_DIR$/CommonFunction.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyNodeVisitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/MyNodeVisitor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.php" beforeDir="false" afterPath="$PROJECT_DIR$/temp.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/class.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/class.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/class_func.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/file_singled.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/file_singled.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,13 +48,13 @@
         <counts>
           <entry key="dummy" value="14" />
           <entry key="file_singled" value="11" />
-          <entry key="php" value="19996" />
+          <entry key="php" value="20201" />
           <entry key="txt" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="20007" />
+          <entry key="PHP" value="20212" />
           <entry key="PLAIN_TEXT" value="58" />
         </counts>
       </usages-collector>
@@ -71,7 +63,7 @@
           <entry key="file_singled" value="1" />
           <entry key="json" value="1" />
           <entry key="md" value="2" />
-          <entry key="php" value="96" />
+          <entry key="php" value="101" />
           <entry key="php-parse" value="1" />
           <entry key="test" value="59" />
           <entry key="xml" value="1" />
@@ -81,7 +73,7 @@
         <counts>
           <entry key="JSON" value="1" />
           <entry key="Markdown" value="2" />
-          <entry key="PHP" value="98" />
+          <entry key="PHP" value="103" />
           <entry key="PLAIN_TEXT" value="59" />
           <entry key="XML" value="1" />
         </counts>
@@ -98,11 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="589">
+              <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
               <folding>
                 <element signature="e#71#91#0#PHP" expanded="true" />
               </folding>
@@ -110,50 +102,44 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/serialize.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1919">
-              <caret line="101" column="10" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyNodeVisitor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="723" column="37" selection-start-line="723" selection-start-column="37" selection-end-line="723" selection-end-column="37" />
+            <state relative-caret-position="359">
+              <caret line="214" column="50" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
               <folding>
                 <element signature="e#93#112#0#PHP" expanded="true" />
                 <element signature="e#1911#1944#0#PHP" />
                 <element signature="e#2160#2309#0#PHP" />
-                <element signature="e#2725#2757#0#PHP" />
                 <element signature="e#4704#4764#0#PHP" />
+                <element signature="e#4921#4973#0#PHP" />
                 <element signature="e#5732#5793#0#PHP" />
+                <element signature="e#13408#13447#0#PHP" />
                 <element signature="e#11615#11676#0#PHP" />
                 <element signature="e#12691#12750#0#PHP" />
                 <element signature="e#18425#18526#0#PHP" />
+                <element signature="n#get_in_func#0;n#MyNodeVisitor#0;n#!!top" />
                 <element signature="e#19872#19966#0#PHP" />
+                <element signature="n#get_in_class_func#0;n#MyNodeVisitor#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_test/PropertyFetch.php">
+        <entry file="file://$PROJECT_DIR$/test/file_singled.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1254">
-              <caret line="354" column="27" selection-start-line="354" selection-start-column="10" selection-end-line="354" selection-end-column="33" />
+            <state>
+              <caret selection-end-line="8" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_test/array.php">
+        <entry file="file://$PROJECT_DIR$/test/serialize.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1539">
-              <caret line="81" column="46" selection-start-line="81" selection-start-column="33" selection-end-line="81" selection-end-column="46" />
+            <state relative-caret-position="151">
+              <caret line="100" selection-start-line="100" selection-end-line="153" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -161,8 +147,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="116" selection-start-line="116" selection-end-line="138" />
+            <state relative-caret-position="1538">
+              <caret line="116" selection-start-line="116" selection-end-line="137" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/NodeTraverser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -180,18 +175,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/temp.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CommonFunction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
+            <state relative-caret-position="304">
               <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
               <folding>
                 <element signature="e#114#174#0#PHP" />
@@ -201,10 +187,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/NodeTraverser.php">
+        <entry file="file://$PROJECT_DIR$/ComFuncParser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3245">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="228">
+              <caret line="12" column="27" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Info.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -213,21 +208,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$call_func_name</find>
-      <find>check_</find>
-      <find>output_result</find>
-      <find>$in_class_func_name</find>
-      <find>class_pvf</find>
-      <find>$this-&gt;class_pvf</find>
-      <find>class_func</find>
-      <find>$this-&gt;output_result</find>
       <find>func_tained_var</find>
       <find>class_parser-&gt;func_tained_var</find>
       <find>check_array_key</find>
       <find>funccall</find>
       <find>destruct</find>
       <find>aaa</find>
-      <find>assign</find>
       <find>class_func_map</find>
       <find>$this-&gt;class_magic_method_ma</find>
       <find>method_</find>
@@ -243,6 +229,15 @@
       <find>start_class</find>
       <find>between_class</find>
       <find>output</find>
+      <find>class_map</find>
+      <find>_map</find>
+      <find>condition_map</find>
+      <find>$assing_map</find>
+      <find>assing_map</find>
+      <find>在流程</find>
+      <find>$this-&gt;tained_var</find>
+      <find>assign</find>
+      <find>tained_var</find>
     </findStrings>
     <replaceStrings>
       <replace>$token_func_map</replace>
@@ -290,17 +285,17 @@
         <option value="$PROJECT_DIR$/Parser.php" />
         <option value="$PROJECT_DIR$/test/object.php" />
         <option value="$PROJECT_DIR$/test/file_singled" />
-        <option value="$PROJECT_DIR$/test/file_singled.php" />
         <option value="$PROJECT_DIR$/test/class_func.php" />
         <option value="$PROJECT_DIR$/temp.php" />
         <option value="$PROJECT_DIR$/ClassParser.php" />
         <option value="$PROJECT_DIR$/parser_test/array.php" />
         <option value="$PROJECT_DIR$/CommonFunction.php" />
         <option value="$PROJECT_DIR$/parser_test/PropertyFetch.php" />
-        <option value="$PROJECT_DIR$/MyNodeVisitor.php" />
         <option value="$PROJECT_DIR$/test/serialize.php" />
         <option value="$PROJECT_DIR$/test/class.php" />
+        <option value="$PROJECT_DIR$/test/file_singled.php" />
         <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/MyNodeVisitor.php" />
       </list>
     </option>
   </component>
@@ -320,7 +315,7 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="268" />
     <option name="y" value="23" />
     <option name="width" value="1400" />
@@ -419,12 +414,12 @@
       <workItem from="1553565965236" duration="31625000" />
       <workItem from="1553864128590" duration="40775000" />
       <workItem from="1554448464738" duration="57565000" />
-      <workItem from="1554806983308" duration="47758000" />
+      <workItem from="1554806983308" duration="58864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207882000" />
+    <option name="totallyTimeSpent" value="218988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -439,22 +434,22 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49575552" visible="true" weight="0.14658849" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49484536" visible="true" weight="0.14658849" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" sideWeight="0.5042445" side_tool="true" visible="true" weight="0.14658849" />
+      <window_info id="Favorites" order="2" sideWeight="0.5051546" side_tool="true" weight="0.14658849" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.329718" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
       <window_info anchor="bottom" auto_hide="true" x="-1920" y="0" width="1920" height="1040" id="Run" order="3" side_tool="true" type="FLOATING" visible="true" weight="0.37635574" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.6391258" visible="true" weight="0.36117136" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.6385928" weight="0.36117136" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2635575" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49946696" visible="true" weight="0.38937092" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.3286334" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.3608742" side_tool="true" visible="true" weight="0.36117136" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.36140725" side_tool="true" weight="0.36117136" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -489,66 +484,50 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/MyNodeVisitor.php</url>
-          <line>721</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>$this-&gt;class_parser-&gt;target_class</expression-string>
+        <expression-string>$this-&gt;assing_map</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$this-&gt;class_parser-&gt;start_class</expression-string>
+        <expression-string>$node</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$pop_chain</expression-string>
+        <expression-string>$left_var_arr</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$class_method['after']</expression-string>
+        <expression-string>$node_position</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$this-&gt;class_parser-&gt;between_class</expression-string>
+        <expression-string>$this-&gt;tained_var</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$class_method</expression-string>
+        <expression-string>$origin_tained_var</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$class</expression-string>
+        <expression-string>$this-&gt;assing_map[$node_position]</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$between_class</expression-string>
+        <expression-string>array_key_exists($node_position,$this-&gt;assing_map) &amp;&amp; array_key_exists($right_var,$this-&gt;tained_var)</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>$class['after']</expression-string>
-        <language-id>PHP</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>$target_class[0]</expression-string>
+        <expression-string>$this-&gt;tained_var)</expression-string>
         <language-id>PHP</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -782,43 +761,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Info.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Func.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ComFuncParser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/class_func.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/file_singled.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parser_test/PropertyFetch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1254">
-          <caret line="354" column="27" selection-start-line="354" selection-start-column="10" selection-end-line="354" selection-end-column="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser_test/array.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -834,6 +778,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/parser_test/PropertyFetch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="354" column="27" selection-start-line="354" selection-start-column="10" selection-end-line="354" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ComFuncParser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="27" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ClassParser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -844,16 +816,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/NodeTraverser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3245">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CommonFunction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="304">
           <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding>
             <element signature="e#114#174#0#PHP" />
@@ -861,45 +826,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyNodeVisitor.php">
+    <entry file="file://$PROJECT_DIR$/test/class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="723" column="37" selection-start-line="723" selection-start-column="37" selection-end-line="723" selection-end-column="37" />
-          <folding>
-            <element signature="e#93#112#0#PHP" expanded="true" />
-            <element signature="e#1911#1944#0#PHP" />
-            <element signature="e#2160#2309#0#PHP" />
-            <element signature="e#2725#2757#0#PHP" />
-            <element signature="e#4704#4764#0#PHP" />
-            <element signature="e#5732#5793#0#PHP" />
-            <element signature="e#11615#11676#0#PHP" />
-            <element signature="e#12691#12750#0#PHP" />
-            <element signature="e#18425#18526#0#PHP" />
-            <element signature="e#19872#19966#0#PHP" />
-          </folding>
+        <state relative-caret-position="1538">
+          <caret line="116" selection-start-line="116" selection-end-line="137" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/serialize.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1919">
-          <caret line="101" column="10" selection-start-line="101" selection-start-column="10" selection-end-line="101" selection-end-column="10" />
+        <state relative-caret-position="151">
+          <caret line="100" selection-start-line="100" selection-end-line="153" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/class.php">
+    <entry file="file://$PROJECT_DIR$/vendor/nikic/php-parser/lib/PhpParser/NodeTraverser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="116" selection-start-line="116" selection-end-line="138" />
+        <state relative-caret-position="323">
+          <caret line="127" column="45" selection-start-line="127" selection-start-column="45" selection-end-line="127" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/file_singled.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="8" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="589">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
           <folding>
             <element signature="e#71#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyNodeVisitor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="214" column="50" selection-start-line="214" selection-start-column="50" selection-end-line="214" selection-end-column="50" />
+          <folding>
+            <element signature="e#93#112#0#PHP" expanded="true" />
+            <element signature="e#1911#1944#0#PHP" />
+            <element signature="e#2160#2309#0#PHP" />
+            <element signature="e#4704#4764#0#PHP" />
+            <element signature="e#4921#4973#0#PHP" />
+            <element signature="e#5732#5793#0#PHP" />
+            <element signature="e#13408#13447#0#PHP" />
+            <element signature="e#11615#11676#0#PHP" />
+            <element signature="e#12691#12750#0#PHP" />
+            <element signature="e#18425#18526#0#PHP" />
+            <element signature="n#get_in_func#0;n#MyNodeVisitor#0;n#!!top" />
+            <element signature="e#19872#19966#0#PHP" />
+            <element signature="n#get_in_class_func#0;n#MyNodeVisitor#0;n#!!top" />
           </folding>
         </state>
       </provider>

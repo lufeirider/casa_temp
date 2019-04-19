@@ -23,3 +23,44 @@ $cmd = $_GET['cmd'];
 $people = new People();
 $people->show_name($cmd)
 ?>
+
+
+<?php
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$e = $_GET['e'];
+$f = $_GET['f'];
+
+$arr = array(
+    'abc'=>$_GET['gg'],
+    'cdf'=>$_GET['aaa'],
+);
+
+$tmp = $_GET['gg'];
+if($tmp == 1){
+    // ArrayAccessExpression
+    $hello = $arr['cdf'];
+}
+else if($tmp == 2){
+    // ConcatenationExpression
+    $hello = $a.$b;
+}
+else if($tmp == 3){
+    // UnaryExpression
+    $hello = -$a;
+
+}
+else if($tmp == 4){
+    // TernaryExpression
+    $hello = $c==1?$a:$b;
+
+}
+else if($tmp == 5){
+    // ParenthesizedExpression
+    $hello = ($c);
+}
+
+system($hello);
+?>
